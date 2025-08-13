@@ -8,13 +8,14 @@ function calculateIncome() {
 }
 
 // Auto Year in Footer
-document.getElementById('year').innerText = new Date().getFullYear();
-// Mobile Menu Toggle
-document.addEventListener("DOMContentLoaded", function() {
-    const menuToggle = document.getElementById("menu-toggle");
-    const navLinks = document.getElementById("nav-links");
+// Wait until the DOM is loaded
+document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navMenu = document.querySelector(".nav-menu");
 
-    menuToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("show");
-    });
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener("click", function () {
+            navMenu.classList.toggle("active");
+        });
+    }
 });
