@@ -7,15 +7,24 @@ function calculateIncome() {
     document.getElementById('result').innerText = `Estimated yearly income: $${income}`;
 }
 
-// Auto Year in Footer
-// Wait until the DOM is loaded
 document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.querySelector(".menu-toggle");
     const navMenu = document.querySelector(".nav-menu");
+    const navLinks = document.querySelectorAll(".nav-menu a");
 
     if (menuToggle && navMenu) {
+        // Toggle menu on hamburger click
         menuToggle.addEventListener("click", function () {
             navMenu.classList.toggle("active");
+            menuToggle.classList.toggle("active"); // Optional: animate icon
+        });
+
+        // Close menu when any link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                navMenu.classList.remove("active");
+                menuToggle.classList.remove("active");
+            });
         });
     }
 });

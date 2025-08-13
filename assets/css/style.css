@@ -64,15 +64,66 @@ footer {
     background-color: #0044cc;
     color: white;
 }
+/* Desktop defaults */
+.menu-toggle {
+    display: none;
+}
+
+/* Mobile view */
 @media (max-width: 768px) {
-    header nav {
-        flex-direction: column;
+    nav {
+        position: relative;
     }
-    header ul {
+
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+        padding: 10px;
+        z-index: 1000;
+    }
+
+    .nav-menu {
+        display: none;
         flex-direction: column;
-        gap: 0.5rem;
+        background: #222;
+        position: absolute;
+        top: 60px;
+        right: 10px; /* instead of full width */
+        width: 200px; /* fixed small width */
+        border-radius: 8px;
+        padding: 10px 0;
+        z-index: 999;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-menu li {
+        text-align: left; /* aligns text nicely inside */
+        margin: 5px 0;
+        padding: 0 15px;
+    }
+
+    .nav-menu li a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        display: block;
+        padding: 8px 0;
+    }
+
+    .nav-menu.active {
+        display: flex;
+        animation: fadeIn 0.3s ease;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-5px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 }
+
+
 .tool-card {
     background: white;
     padding: 1rem;
@@ -173,4 +224,91 @@ footer {
     padding: 15px;
     text-align: center;
 }
+
+/* ---------------- About Page ---------------- */
+.page-header {
+    text-align: center;
+    padding: 60px 20px 30px 20px;
+    background-color: #f1f5f9;
+    border-bottom: 1px solid #ddd;
+}
+
+.page-header h2 {
+    font-size: 2.2rem;
+    color: #111;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.about-section {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: #444;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ---------------- Contact Page ---------------- */
+.contact-section {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-section label {
+    font-weight: bold;
+    color: #333;
+}
+
+.contact-section input,
+.contact-section textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.contact-section input:focus,
+.contact-section textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 6px rgba(0,123,255,0.3);
+    outline: none;
+}
+
+.contact-section button {
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.contact-section button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
 
